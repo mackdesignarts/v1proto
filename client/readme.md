@@ -8,19 +8,18 @@ A Vue.js single page application & client portal for the V1 production prototype
 
 2. In the /client directory, run: 
 - >npm install
-
-3. This iteration uses the Vuestic admin dashboard: https://github.com/epicmaxco/vuestic-admin. 
-
-Install Vuestic:
 - >npm install -g @vue/cli
+
+3. This iteration uses the VueStic admin dashboard template: https://github.com/epicmaxco/vuestic-admin. 
+
+Install VueStic **For new UI builds only!!** - otherwise skip this step!!:
 - >npm install vuestic-installer -g
+- >vuestic V1-portal
+
+4. CD into the VeuStic project directory and launch local hot-reload server: 
+- >cd V1-portal
+- >npm install
+- >npm run serve
 
 
-## Usage
 
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
