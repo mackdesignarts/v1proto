@@ -27,8 +27,10 @@ config/env/local-*.js
 modules/*/client/scss/*.css
 modules/*/client/less/*.css
 
-# Ignoring MEAN.JS's gh-pages branch for documenation
-_site/
+# Tests
+# =====
+tests/e2e/reports/
+selenium-debug.log
 
 # General
 # =======
@@ -43,10 +45,6 @@ _site/
 *.swp
 logs/
 build/
-
-# IntelliJ
-# ========
-*.iml
 
 # Cloud9 IDE
 # =========

@@ -1,15 +1,8 @@
 {
-  "name": "@coreui/coreui-free-vue-admin-template",
-  "version": "2.1.5",
-  "description": "Open Source Bootstrap Admin Template",
-  "author": "Łukasz Holeczek",
-  "homepage": "http://coreui.io",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:coreui/coreui-free-vue-admin-template.git"
-  },
+  "name": "v1-client",
+  "version": "1.0.0",
+  "description": "VOIP application",
+  "author": "Tony McLaughlin",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

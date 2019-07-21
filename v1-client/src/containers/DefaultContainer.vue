@@ -1,5 +1,6 @@
 <template>
   <div class="app">
+    <!-- HEADER -->
     <AppHeader fixed>
       <SidebarToggler class="d-lg-none" display="md" mobile />
       <div class="logo-mark-container">
@@ -7,7 +8,6 @@
       </div>
       <b-link class="navbar-brand" to="#">
         <img class="navbar-brand-full word-mark" src="img/brand/wordmark.png" alt="V1 Voip Logo">
-        <img class="navbar-brand-minimized" src="img/brand/mark.png" alt="V1 Voip Logo Mark">
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" :defaultOpen=true />
       <b-navbar-nav class="d-md-down-none">
@@ -24,6 +24,7 @@
         <DefaultHeaderDropdownAccnt/>
       </b-navbar-nav>
     </AppHeader>
+    <!-- MAIN CONTENT -->
     <div class="app-body">
       <AppSidebar fixed>
         <SidebarHeader/>
@@ -39,8 +40,8 @@
         </div>
       </main>
     </div>
+    <!-- FOOTER -->
     <TheFooter>
-      <!--footer-->
       <div>
         <a href="">V1 VOIP</a>
         <span class="ml-1">&copy; 2019 creativeLabs.</span>
