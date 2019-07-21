@@ -1,10 +1,8 @@
 <template>
   <AppHeaderDropdown right no-caret>
     <template slot="header">
-      <img
-        src="img/avatars/6.jpg"
-        class="img-avatar"
-        alt="admin@bootstrapmaster.com" />
+      <span> {{ user_name }} </span>
+      <img src="img/icons/user_icon.png" class="img-avatar" alt="user icon" />
     </template>\
     <template slot="dropdown">
       <b-dropdown-header tag="div" class="text-center"><strong>Account</strong></b-dropdown-header>
@@ -48,7 +46,16 @@ export default {
     AppHeaderDropdown
   },
   data: () => {
-    return { itemsCount: 42 }
+    return { 
+      itemsCount: 42,
+      user_name: "Jane Doe"
+    }
   }
 }
 </script>
+
+<style>
+.img-avatar {
+  height: 26px !important;
+}
+</style>

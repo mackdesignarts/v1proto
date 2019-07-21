@@ -149,4 +149,9 @@ a:hover {
 .word-mark {
   width: 82px;
 }
+
+.badge-danger {
+    color: #fff;
+    background-color: #ff7b31;
+}
 </style>
