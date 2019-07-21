@@ -2,8 +2,9 @@
   <AppHeaderDropdown right no-caret>
     <template slot="header">
       <div class="user-util-icon">
-        <span> {{ user_name }} </span>
         <img src="img/icons/user_icon.png" class="img-avatar" alt="user icon" />
+        <span class="user-util-name"> {{ user_name }} </span>
+        <img src="img/icons/chevron_down_icon.png" class="user-util-chevron"  />
       </div>
     </template>\
     <template slot="dropdown">
@@ -58,10 +59,15 @@ export default {
 
 <style>
 .img-avatar {
-  height: 26px !important;
+  height: 24px !important;
+  margin-right: 8px;
 }
 
 .user-util-icon {
   margin: 0 50px 0 40px;
+}
+
+.user-util-chevron {
+  width: 15px;
 }
 </style>

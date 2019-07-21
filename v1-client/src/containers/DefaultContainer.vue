@@ -18,7 +18,7 @@
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="d-md-down-none">
-          <i class="icon-bell"></i>
+          <img src="img/icons/bell_icon.png" alt="Support Icon" />
           <b-badge pill variant="danger"> {{ alertCount }} </b-badge>
         </b-nav-item>
         <DefaultHeaderDropdownAccnt/>
@@ -108,8 +108,42 @@ a:hover {
   background-color: #fef6e1;
 }
 
-.sidebar .nav-link, .sidebar .nav-title {
+.sidebar .nav-title,
+.sidebar .nav-link,  
+.sidebar .nav-link.active, 
+.sidebar .nav-link:hover,
+.sidebar .nav-dropdown.open .nav-link {
   color: #535353;
+}
+
+.sidebar .nav-link:hover {
+  background: #fbf0d2;
+}
+
+.sidebar .nav {
+    width: 245px;
+}
+
+.sidebar {
+  padding-top: 20px;
+}
+
+.sidebar .nav-dropdown.open {
+  background: #f5eacb;
+}
+
+.sidebar .nav-dropdown-toggle::before {
+  background-image: url('../../public/img/icons/chevron_right_icon.png') !important;
+  width: 12px;
+  height: 12px;
+}
+
+.sidebar .sidebar-nav {
+  width: 245px;
+}
+
+.sidebar .nav-dropdown.open > .nav-dropdown-toggle::before {
+  transform: rotate(90deg);
 }
 
 .app-header {
@@ -149,16 +183,16 @@ a:hover {
 }
 
 .logo-mark {
-  width: 40px;
+  width: 38px;
 }
 
 .word-mark {
-  width: 82px;
+  width: 80px;
 }
 
 .badge-danger {
     color: #fff;
-    background-color: #ff7b31;
+    background-color: #464646;
 }
 
 @media (min-width: 992px) {
