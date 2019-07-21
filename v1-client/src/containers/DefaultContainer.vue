@@ -92,6 +92,10 @@ export default {
 </script>
 
 <style>
+body {
+  background-color: #f6efdd !important;
+}
+
 a {
   color: #ff7b31;
   text-decoration: none;
@@ -100,6 +104,10 @@ a {
 
 a:hover {
   color: #e86419;
+}
+
+.card-header {
+  background-color: #fff;
 }
 
 button:focus { 
