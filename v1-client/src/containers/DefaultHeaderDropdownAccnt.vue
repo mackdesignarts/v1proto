@@ -1,8 +1,10 @@
 <template>
   <AppHeaderDropdown right no-caret>
     <template slot="header">
-      <span> {{ user_name }} </span>
-      <img src="img/icons/user_icon.png" class="img-avatar" alt="user icon" />
+      <div class="user-util-icon">
+        <span> {{ user_name }} </span>
+        <img src="img/icons/user_icon.png" class="img-avatar" alt="user icon" />
+      </div>
     </template>\
     <template slot="dropdown">
       <b-dropdown-header tag="div" class="text-center"><strong>Account</strong></b-dropdown-header>
@@ -57,5 +59,9 @@ export default {
 <style>
 .img-avatar {
   height: 26px !important;
+}
+
+.user-util-icon {
+  margin: 0 50px 0 40px;
 }
 </style>

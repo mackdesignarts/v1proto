@@ -11,24 +11,18 @@
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" :defaultOpen=true />
       <b-navbar-nav class="d-md-down-none">
-        <b-nav-item class="px-3" to="/dashboard">Dashboard</b-nav-item>
-        <b-nav-item class="px-3" to="/support">Support</b-nav-item>
+        <b-nav-item class="px-4" to="/support">
+          <img src="img/icons/support_icon.png" alt="Support Icon" />
+          <span class="nav-text-header-left" >Support</span>
+        </b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="d-md-down-none">
           <i class="icon-bell"></i>
-          <b-badge pill variant="danger">5</b-badge>
-        </b-nav-item>
-        <b-nav-item class="d-md-down-none">
-          <i class="icon-list"></i>
-        </b-nav-item>
-        <b-nav-item class="d-md-down-none">
-          <i class="icon-location-pin"></i>
+          <b-badge pill variant="danger"> {{ alertCount }} </b-badge>
         </b-nav-item>
         <DefaultHeaderDropdownAccnt/>
       </b-navbar-nav>
-      <AsideToggler class="d-none d-lg-block" />
-      <!--<AsideToggler class="d-lg-none" mobile />-->
     </AppHeader>
     <div class="app-body">
       <AppSidebar fixed>
@@ -44,20 +38,12 @@
           <router-view></router-view>
         </div>
       </main>
-      <AppAside fixed>
-        <!--aside-->
-        <DefaultAside/>
-      </AppAside>
     </div>
     <TheFooter>
       <!--footer-->
       <div>
-        <a href="https://coreui.io">CoreUI</a>
-        <span class="ml-1">&copy; 2018 creativeLabs.</span>
-      </div>
-      <div class="ml-auto">
-        <span class="mr-1">Powered by</span>
-        <a href="https://coreui.io">CoreUI for Vue</a>
+        <a href="">V1 VOIP</a>
+        <span class="ml-1">&copy; 2019 creativeLabs.</span>
       </div>
     </TheFooter>
   </div>
@@ -66,7 +52,6 @@
 <script>
 import nav from '@/_nav'
 import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
-import DefaultAside from './DefaultAside'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
 
 export default {
@@ -78,7 +63,6 @@ export default {
     AppAside,
     TheFooter,
     Breadcrumb,
-    DefaultAside,
     DefaultHeaderDropdownAccnt,
     SidebarForm,
     SidebarFooter,
@@ -89,7 +73,8 @@ export default {
   },
   data () {
     return {
-      nav: nav.items
+      nav: nav.items,
+      alertCount: 7
     }
   },
   computed: {
@@ -119,15 +104,36 @@ a:hover {
   font-weight: 700;
 }
 
+.sidebar, .sidebar .nav-link.active  {
+  background-color: #fef6e1;
+}
+
+.sidebar .nav-link, .sidebar .nav-title {
+  color: #535353;
+}
+
+.app-header {
+  border-bottom: 1px solid #eadcb7;
+  height: unset;
+}
+
+.app-header .navbar-toggler {
+  margin-left: 90px;
+}
+
 .app-header .navbar-toggler-icon {
-  height: 17px;
+  height: 16px;
   width: 20px;
   background-image: url('../../public/img/icons/hamburger_icon.png') !important;
   text-decoration: none;
 }
 
+.nav-text-header-left {
+  margin-left: 15px;
+}
+
 .app-header .navbar-brand {
-  width: 110px;
+  width: 102px;
 }
 
 .main .container-fluid {
@@ -154,4 +160,19 @@ a:hover {
     color: #fff;
     background-color: #ff7b31;
 }
+
+@media (min-width: 992px) {
+  .sidebar-fixed .sidebar {
+    width: 245px;
+  }
+}
+
+@media (min-width: 992px) {
+  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .main, 
+  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .app-footer, 
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main, 
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
+      margin-left: 245px;
+  }
+} 
 </style>
