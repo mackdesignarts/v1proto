@@ -42,9 +42,9 @@ export default {
       name: 'Auth / Register'
     },
     {
-      name: 'Pages',
+      name: 'Reports',
       url: '/pages',
-      icon: 'icon-star',
+      icon: 'icon-screen-tablet',
       children: [
         {
           name: 'Login',

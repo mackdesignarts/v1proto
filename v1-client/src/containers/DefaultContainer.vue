@@ -24,8 +24,9 @@
         <DefaultHeaderDropdownAccnt/>
       </b-navbar-nav>
     </AppHeader>
-    <!-- MAIN CONTENT -->
+    <!-- BODY -->
     <div class="app-body">
+      <!-- SIDEBAR -->
       <AppSidebar fixed>
         <SidebarHeader/>
         <SidebarForm/>
@@ -33,6 +34,7 @@
         <SidebarFooter/>
         <SidebarMinimizer/>
       </AppSidebar>
+      <!-- MAIN CONTENT -->
       <main class="main">
         <Breadcrumb :list="list"/>
         <div class="container-fluid">
@@ -44,7 +46,7 @@
     <TheFooter>
       <div>
         <a href="">V1 VOIP</a>
-        <span class="ml-1">&copy; 2019 creativeLabs.</span>
+        <span class="ml-1">&copy; 2019</span>
       </div>
     </TheFooter>
   </div>
@@ -100,13 +102,17 @@ a:hover {
   color: #e86419;
 }
 
+button:focus { 
+  outline: none; 
+}
+
 .navbar-nav .nav-link {
   color: #666;
   font-weight: 700;
 }
 
 .sidebar, .sidebar .nav-link.active  {
-  background-color: #fef6e1;
+  background-color: #fef9eb;
 }
 
 .sidebar .nav-title,
@@ -179,7 +185,7 @@ a:hover {
   text-align: center;
   width: 55px;
   height: 55px;
-  background: #f6efdd;
+  background: #fff;
   padding-top: 15px;
 }
 
@@ -194,6 +200,23 @@ a:hover {
 .badge-danger {
     color: #fff;
     background-color: #464646;
+}
+
+.icon-speedometer:before {
+  content: url('../../public/img/icons/dashboard_icon.png');
+}
+
+.icon-drop:before {
+  content: url('../../public/img/icons/phone_icon.png');
+}
+
+.icon-screen-tablet:before {
+  content: url('../../public/img/icons/reports_icon.png');
+}
+
+
+.sidebar .nav-link .nav-icon {
+  width: unset;
 }
 
 @media (min-width: 992px) {
