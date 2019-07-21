@@ -219,6 +219,10 @@ button:focus {
   width: unset;
 }
 
+.app-footer {
+  background-color: #fef9eb;
+}
+
 @media (min-width: 992px) {
   .sidebar-fixed .sidebar {
     width: 245px;
