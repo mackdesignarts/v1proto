@@ -2,15 +2,17 @@
   <div class="app">
     <AppHeader fixed>
       <SidebarToggler class="d-lg-none" display="md" mobile />
+      <div class="logo-mark-container">
+        <img class="navbar-brand-full logo-mark" src="img/brand/mark.png" alt="V1 Voip Logo">
+      </div>
       <b-link class="navbar-brand" to="#">
-        <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+        <img class="navbar-brand-full word-mark" src="img/brand/wordmark.png" alt="V1 Voip Logo">
+        <img class="navbar-brand-minimized" src="img/brand/mark.png" alt="V1 Voip Logo Mark">
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" :defaultOpen=true />
       <b-navbar-nav class="d-md-down-none">
         <b-nav-item class="px-3" to="/dashboard">Dashboard</b-nav-item>
-        <b-nav-item class="px-3" to="/users" exact>Users</b-nav-item>
-        <b-nav-item class="px-3">Settings</b-nav-item>
+        <b-nav-item class="px-3" to="/support">Support</b-nav-item>
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="d-md-down-none">
@@ -100,3 +102,51 @@ export default {
   }
 }
 </script>
+
+<style>
+a {
+  color: #ff7b31;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #e86419;
+}
+
+.navbar-nav .nav-link {
+  color: #666;
+  font-weight: 700;
+}
+
+.app-header .navbar-toggler-icon {
+  height: 17px;
+  width: 20px;
+  background-image: url('../../public/img/icons/hamburger_icon.png') !important;
+  text-decoration: none;
+}
+
+.app-header .navbar-brand {
+  width: 110px;
+}
+
+.main .container-fluid {
+  padding: 0 8px;
+}
+
+.logo-mark-container {
+  text-align: center;
+  width: 55px;
+  height: 55px;
+  background: #f6efdd;
+  padding-top: 15px;
+}
+
+.logo-mark {
+  width: 40px;
+}
+
+.word-mark {
+  width: 82px;
+}
+</style>
