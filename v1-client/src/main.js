@@ -8,9 +8,11 @@ import 'es6-promise/auto'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 import router from './router'
+import axios from 'axios'
 
 Vue.use(BootstrapVue)
 Vue.use(Vuex)
+Vue.prototype.$http = axios
 
 new Vue({
   el: '#app',

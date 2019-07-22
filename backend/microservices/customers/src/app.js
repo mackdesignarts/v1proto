@@ -1,30 +1,30 @@
 const express = require('express')
-const Customer = require('./models/customers_model')
-const app = express()
+const morgan = require('morgan')
+const helmet = require('helmet')
 const bodyParser = require('body-parser')
+const Customer = require('./models/customers_model')
 
-app.use(bodyParser.json())
-
-app.get('/', (req, res) => {
-    res.json({ 
-        msg: 'customers',
-        version: '1.0.0'
-    })
-})
-
-app.get('/api/v1/customers', async (req, res) => {
-    const customers = await Customer.find({})
-    res.json({ customers })
-})
-
-app.post('/api/v1/customers', async (req, res) => {
-    const customerModel = {
-        ID = req.body.ID,
-        firstName = req.body.firstName,
-        lastName = req.body.lastName    
+const start = (options) => {
+  return new Promise((resolve, reject) => {
+    if (!options.repo) {
+      reject(new Error('Not connected to DB'))
     }
+    if (!options.port) {
+      reject(new Error('Port not available'))
+    }
+    // Express app
+    const app = express()
+    app.use(morgan('dev'))
+    app.use(helmet())
+    app.use((err, req, res, next) => {
+      reject(new Error('An error has occurred:' + err))
+      res.status(500).send('Error')
+    })
+    
+    // Customer(app, options)
+    
+    const server = app.listen(options.port, () => resolve(server))
+  })
+}
 
-    const customer = new Customer({ customerModel })
-    const savedCustomer = await customer.save();
-    res.json({ savedCustomer })
-})
+module.exports = Object.assign({}, { start })

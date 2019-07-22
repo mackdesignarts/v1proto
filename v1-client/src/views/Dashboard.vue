@@ -4,7 +4,7 @@
       <b-col md="6">
         <b-card>
           <div slot="header">
-            <strong>Customer Admin</strong> - Profile Manager
+            <strong>Customer Admin</strong> - Create User
           </div>
           <b-form>
           <b-form-group
@@ -83,7 +83,7 @@
               v-on:click="submit"
               >
               <i class="fa fa-dot-circle-o"></i> 
-              Submit
+              Create
             </b-button>
           </div>
           </b-form>
@@ -99,6 +99,7 @@
 <script>
 
 import { Callout } from '@coreui/vue'
+import { HTTP } from '../mixins/http-mixin'
 
 export default {
   name: 'dashboard',
@@ -111,7 +112,8 @@ export default {
       password: null,
       userRole: 'Please select',
       phoneNumber: null,
-      email: null
+      email: null,
+      response: null
     }
   },
   methods: {
@@ -127,8 +129,38 @@ export default {
       this.phoneNumber = null
       this.email = null
     },
-    postUser(userData) {
-
+    createUser(userData) {
+      const userModel = {
+        "id": 0,
+        "nodeScope": true,
+        "operatorId": 0,
+        "partitionScope": true,
+        "privileges": [
+          {
+            "id": 0,
+            "operatorId": 0,
+            "privilege": {
+              "description": "string",
+              "id": 0,
+              "name": "string",
+              "operatorId": 0,
+              "partitionScope": true,
+              "screenId": 0
+            },
+            "privilegeId": 0
+          }
+        ],
+        "roleName": "string",
+        "roleType": "string"
+      }
+      HTTP.post(userModel)
+        .then(response => {
+          this.response = response.data
+        })
+        .catch(e => {
+          this.errors.push(e)
+          console.log('An error has occurred:' + e)
+        })
     },
     submit() {
       const userData = {
@@ -140,7 +172,7 @@ export default {
         email: this.email
       }
       if(this.validateForm(userData)) 
-        postUser(userData)
+        this.createUser(userData)
     }
   }
 }

@@ -2,9 +2,12 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const CustomerSchema = new Schema({
-    ID = Number,
-    firstName = String,
-    lastName = String,
+    userID = Number,
+    name = String,
+    password = String,
+    email = String,
+    phoneNumber = String,
+    userRole = String,
     dateCreated = { type: Date, default: Date.now }
 })
 
