@@ -9,11 +9,7 @@
       <b-link class="navbar-brand" to="#">
         <img class="navbar-brand-full word-mark" src="img/brand/wordmark2.png" alt="V1 Voip Logo">
       </b-link>
-      <span class="toggle-wrapper">
-        <b-link @click="onToggleClick()">
-          <img class="toggle-icon" src="img/icons/hamburger_icon.png" alt="V1 Voip Logo">
-        </b-link>
-      </span>
+      <SidebarMinimizer/>
       <b-navbar-nav class="d-md-down-none">
         <b-nav-item class="px-4" to="/support">
           <img src="img/icons/support_icon.png" alt="Support Icon" />
@@ -58,9 +54,8 @@
 
 <script>
 import nav from '@/_nav'
-import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
+import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
-import { toggleSidebar } from './../mixins/toggleSidebar'
 
 export default {
   name: 'DefaultContainer',
@@ -76,26 +71,8 @@ export default {
     SidebarFooter,
     SidebarToggler,
     SidebarHeader,
-    SidebarNav
-  },
-  mixins: [ toggleSidebar ],
-  mounted: function () {
-    const isMinimized = document.body.classList.contains('sidebar-minimized')
-    this.toggleSidebar(!isMinimized)
-  },
-  methods: {
-    onToggleClick () {
-      this.sidebarMinimize()
-      this.brandMinimize()
-    },
-    sidebarMinimize () {
-      const isMinimized = document.body.classList.toggle('sidebar-minimized')
-      this.$emit('cui-sidebar-minimize', isMinimized)
-      this.toggleSidebar(!isMinimized)
-    },
-    brandMinimize () {
-      document.body.classList.toggle('brand-minimized')
-    }
+    SidebarNav,
+    SidebarMinimizer
   },
   data () {
     return {
@@ -190,6 +167,14 @@ button:focus {
 
 .sidebar .nav-dropdown.open > .nav-dropdown-toggle::before {
   transform: rotate(90deg);
+}
+
+.sidebar-minimizer {
+  border: 0;
+  height: 20px;
+  width: 20px;
+  background: transparent url('../../public/img/icons/hamburger_icon.png') no-repeat !important;
+  margin: 0 40px 0 100px;
 }
 
 .app-header {
