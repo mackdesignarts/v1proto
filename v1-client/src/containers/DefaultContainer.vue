@@ -7,9 +7,13 @@
         <img class="navbar-brand-full logo-mark" src="img/brand/mark.png" alt="V1 Voip Logo">
       </div>
       <b-link class="navbar-brand" to="#">
-        <img class="navbar-brand-full word-mark" src="img/brand/wordmark.png" alt="V1 Voip Logo">
+        <img class="navbar-brand-full word-mark" src="img/brand/wordmark2.png" alt="V1 Voip Logo">
       </b-link>
-      <SidebarToggler class="d-md-down-none" display="lg" :defaultOpen=true />
+      <span class="toggle-wrapper">
+        <b-link @click="onToggleClick()">
+          <img class="toggle-icon" src="img/icons/hamburger_icon.png" alt="V1 Voip Logo">
+        </b-link>
+      </span>
       <b-navbar-nav class="d-md-down-none">
         <b-nav-item class="px-4" to="/support">
           <img src="img/icons/support_icon.png" alt="Support Icon" />
@@ -32,7 +36,7 @@
         <SidebarForm/>
         <SidebarNav :navItems="nav"></SidebarNav>
         <SidebarFooter/>
-        <SidebarMinimizer/>
+        <!-- SidebarMinimizer -->
       </AppSidebar>
       <!-- MAIN CONTENT -->
       <main class="main">
@@ -54,8 +58,9 @@
 
 <script>
 import nav from '@/_nav'
-import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
+import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
+import { toggleSidebar } from './../mixins/toggleSidebar'
 
 export default {
   name: 'DefaultContainer',
@@ -71,8 +76,26 @@ export default {
     SidebarFooter,
     SidebarToggler,
     SidebarHeader,
-    SidebarNav,
-    SidebarMinimizer
+    SidebarNav
+  },
+  mixins: [ toggleSidebar ],
+  mounted: function () {
+    const isMinimized = document.body.classList.contains('sidebar-minimized')
+    this.toggleSidebar(!isMinimized)
+  },
+  methods: {
+    onToggleClick () {
+      this.sidebarMinimize()
+      this.brandMinimize()
+    },
+    sidebarMinimize () {
+      const isMinimized = document.body.classList.toggle('sidebar-minimized')
+      this.$emit('cui-sidebar-minimize', isMinimized)
+      this.toggleSidebar(!isMinimized)
+    },
+    brandMinimize () {
+      document.body.classList.toggle('brand-minimized')
+    }
   },
   data () {
     return {
@@ -96,6 +119,14 @@ body {
   background-color: #f6efdd !important;
 }
 
+input, textarea, select, a { 
+  outline: none !important; 
+}
+
+.form-control {
+  border: 1px solid #eadcb7;
+}
+
 a {
   color: #ff7b31;
   text-decoration: none;
@@ -115,7 +146,7 @@ button:focus {
 }
 
 .navbar-nav .nav-link {
-  color: #666;
+  color: #59564f;
   font-weight: 700;
 }
 
@@ -128,7 +159,7 @@ button:focus {
 .sidebar .nav-link.active, 
 .sidebar .nav-link:hover,
 .sidebar .nav-dropdown.open .nav-link {
-  color: #535353;
+  color: #59564f;
 }
 
 .sidebar .nav-link:hover {
@@ -170,11 +201,14 @@ button:focus {
   margin-left: 90px;
 }
 
-.app-header .navbar-toggler-icon {
+.app-header .toggle-icon {
   height: 16px;
   width: 20px;
-  background-image: url('../../public/img/icons/hamburger_icon.png') !important;
   text-decoration: none;
+}
+
+.app-header .toggle-wrapper {
+  margin: 0 30px 0 100px;
 }
 
 .nav-text-header-left {
@@ -193,7 +227,7 @@ button:focus {
   text-align: center;
   width: 55px;
   height: 55px;
-  background: #fff;
+  background: #f6efdd;
   padding-top: 15px;
 }
 
@@ -222,9 +256,27 @@ button:focus {
   content: url('../../public/img/icons/reports_icon.png');
 }
 
+.breadcrumb {
+    border-radius: 2px;
+    border-bottom: none;
+    margin: 10px 10px 0 12px;
+}
+
+.card {
+  margin: 12px 0 0 4px;
+  border: none;
+  border-radius: 2px;
+}
+
+.card-header {
+  border-bottom: solid 1px #f6efdd;
+  border-top-left-radius: 2px !important;
+  border-top-right-radius: 2px !important;
+}
 
 .sidebar .nav-link .nav-icon {
   width: unset;
+  vertical-align: bottom;
 }
 
 .app-footer {
@@ -235,14 +287,15 @@ button:focus {
   .sidebar-fixed .sidebar {
     width: 245px;
   }
-}
-
-@media (min-width: 992px) {
   html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .main, 
   html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .app-footer, 
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main, 
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
-      margin-left: 245px;
+    margin-left: 245px;
+  }
+  .sidebar-minimized.sidebar-fixed .sidebar {
+    width: 55px;
   }
 } 
+
 </style>

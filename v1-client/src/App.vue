@@ -23,4 +23,8 @@ export default {
   @import '~bootstrap-vue/dist/bootstrap-vue.css';
   // Import Main styles for this application
   @import 'assets/scss/style';
+  /* Google Fonts */
+  body {
+    font-family: 'Lato', sans-serif;
+  }
 </style>

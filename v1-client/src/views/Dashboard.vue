@@ -1,7 +1,5 @@
 <template>
   <div class="animated fadeIn">
-    
-
     <b-row>
       <b-col md="6">
         <b-card>

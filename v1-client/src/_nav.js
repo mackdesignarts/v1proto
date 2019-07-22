@@ -38,10 +38,6 @@ export default {
       ]
     },
     {
-      title: true,
-      name: 'Auth / Register'
-    },
-    {
       name: 'Reports',
       url: '/pages',
       icon: 'icon-screen-tablet',
