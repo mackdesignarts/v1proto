@@ -2,14 +2,12 @@
   <div class="app">
     <!-- HEADER -->
     <AppHeader fixed>
-      <SidebarToggler class="d-lg-none" display="md" mobile />
-      <div class="logo-mark-container">
-        <img class="navbar-brand-full logo-mark" src="img/brand/mark.png" alt="V1 Voip Logo">
-      </div>
+      <SidebarToggleCustom class="d-lg-none" display="md" mobile />
+      <SidebarMinimizer class="logo-mark-container"/>
       <b-link class="navbar-brand" to="#">
-        <img class="navbar-brand-full word-mark" src="img/brand/wordmark2.png" alt="V1 Voip Logo">
+        <img class="navbar-brand-full word-mark" src="img/brand/wordmark.png" alt="V1 Voip Logo">
       </b-link>
-      <SidebarMinimizer/>
+      <SidebarToggleCustom class="sidebar-toggle-custom" display="lg" :defaultOpen=true />
       <b-navbar-nav class="d-md-down-none">
         <b-nav-item class="px-4" to="/support">
           <img src="img/icons/support_icon.png" alt="Support Icon" />
@@ -32,7 +30,6 @@
         <SidebarForm/>
         <SidebarNav :navItems="nav"></SidebarNav>
         <SidebarFooter/>
-        <!-- SidebarMinimizer -->
       </AppSidebar>
       <!-- MAIN CONTENT -->
       <main class="main">
@@ -54,8 +51,9 @@
 
 <script>
 import nav from '@/_nav'
-import { Header as AppHeader, SidebarToggler, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
+import { Header as AppHeader, Sidebar as AppSidebar, SidebarFooter, SidebarForm, SidebarHeader, SidebarMinimizer, SidebarNav, Aside as AppAside, AsideToggler, Footer as TheFooter, Breadcrumb } from '@coreui/vue'
 import DefaultHeaderDropdownAccnt from './DefaultHeaderDropdownAccnt'
+import SidebarToggleCustom from "../components/sidebarToggleCustom"
 
 export default {
   name: 'DefaultContainer',
@@ -69,7 +67,7 @@ export default {
     DefaultHeaderDropdownAccnt,
     SidebarForm,
     SidebarFooter,
-    SidebarToggler,
+    SidebarToggleCustom,
     SidebarHeader,
     SidebarNav,
     SidebarMinimizer
@@ -112,6 +110,22 @@ a {
 
 a:hover {
   color: #e86419;
+}
+
+.btn-primary {
+  background-color: #ff7b31 !important;
+  border-color: #ff7b31 !important;
+  min-width: 100px;
+  min-height: 40px;
+  margin: 0 10px;
+}
+
+.btn-danger {
+  background-color: #ff005e !important;
+  border-color: #ff005e !important;
+  min-width: 100px;
+  min-height: 40px;
+  margin: 0 10px;
 }
 
 .card-header {
@@ -169,7 +183,7 @@ button:focus {
   transform: rotate(90deg);
 }
 
-.sidebar-minimizer {
+.sidebar-toggle-custom {
   border: 0;
   height: 20px;
   width: 20px;
@@ -183,6 +197,7 @@ button:focus {
 }
 
 .app-header .navbar-toggler {
+  min-width: unset;
   margin-left: 90px;
 }
 
@@ -194,6 +209,12 @@ button:focus {
 
 .app-header .toggle-wrapper {
   margin: 0 30px 0 100px;
+}
+
+.app-footer {
+  background-color: #fff !important;
+  border-top: 1px solid #eadcb7;
+  margin-top: 10px;
 }
 
 .nav-text-header-left {
@@ -212,8 +233,9 @@ button:focus {
   text-align: center;
   width: 55px;
   height: 55px;
-  background: #f6efdd;
+  background: #f6efdd url('../../public/img/brand/mark.png') no-repeat center center;
   padding-top: 15px;
+  border: none;
 }
 
 .logo-mark {
@@ -259,6 +281,10 @@ button:focus {
   border-top-right-radius: 2px !important;
 }
 
+.bg-primary {
+  background-color: #b01b5d !important;
+}
+
 .sidebar .nav-link .nav-icon {
   width: unset;
   vertical-align: bottom;
@@ -266,6 +292,10 @@ button:focus {
 
 .app-footer {
   background-color: #fef9eb;
+}
+
+html:not([dir="rtl"]) .sidebar {
+    margin-left: -245px;
 }
 
 @media (min-width: 992px) {
