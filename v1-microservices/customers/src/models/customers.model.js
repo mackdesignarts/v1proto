@@ -1,11 +1,12 @@
 const customerSchema = (joi) => ({
-    userID = joi.Number,
-    name = joi.String,
-    password = joi.String,
-    email = joi.String,
-    phoneNumber = joi.String,
-    userRole = joi.String,
-    dateCreated = { type: Date, default: Date.now }
+    address = joi.string(),
+    email = joi.string(),
+    id = joi.number(),
+    password = joi.string(),
+    phoneNumber = joi.string(),
+    role = joi.number(),
+    userId = joi.string(),
+    userName = joi.string()
 })
   
 module.exports = customerSchema
