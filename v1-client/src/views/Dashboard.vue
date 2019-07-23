@@ -6,21 +6,31 @@
           <div slot="header">
             <strong>Customer Admin</strong> - Create User
           </div>
+
           <b-form>
           <b-form-group
-            label="Users full name"
-            label-for="fullName"
+            label="Id"
+            label-for="Id"
             :label-cols="3"
           >
-            <b-form-input id="fullName" type="text" autocomplete="name" v-model="name"></b-form-input>
+            <b-form-input id="Id" type="text" autocomplete="Id" v-model="Id"></b-form-input>
+          </b-form-group>
+
+          <b-form>
+          <b-form-group
+            label="Username"
+            label-for="Username"
+            :label-cols="3"
+          >
+            <b-form-input id="Username" type="text" autocomplete="Username" v-model="userName"></b-form-input>
           </b-form-group>
 
           <b-form-group
-            label="User ID"
-            label-for="userID"
+            label="User Id"
+            label-for="userId"
             :label-cols="3"
           >
-            <b-form-input id="userID" type="text" autocomplete="userID" v-model="userID"></b-form-input>
+            <b-form-input id="userId" type="text" autocomplete="userId" v-model="userId"></b-form-input>
           </b-form-group>
 
           <b-form-group
@@ -107,9 +117,11 @@ export default {
   },
   data: function () {
     return {
-      name: null,
-      userID: null,
+      id: null,
+      userName: null,
+      userId: null,
       password: null,
+      address: null,
       userRole: 'Please select',
       phoneNumber: null,
       email: null,
@@ -122,9 +134,11 @@ export default {
       return true
     },
     reset() {
-      this.name = null
-      this.userID = null
+      this.id = null
+      this.userName = null
+      this.userId = null
       this.password = null
+      this.address = null
       this.userRole = 'Please select'
       this.phoneNumber = null
       this.email = null
