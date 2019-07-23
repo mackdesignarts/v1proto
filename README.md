@@ -2,16 +2,20 @@
 
 ## Installation 
 
+This application uses the Node.js runtime and NPM (or Yarn) package manager. Make sure to install Node.js and NPM prior to installation.
+
 1. Vue Front End
 
 ``` To install the front end web application: 
+
+# Installation
 $ cd v1-client
 $ npm install
 
-``` Dev server
+# Dev server
 $ npm run serve
 
-``` Browser
+# Browser
 Open a browser at localhost:8081
 
 ```
