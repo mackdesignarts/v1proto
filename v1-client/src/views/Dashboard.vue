@@ -129,31 +129,9 @@ export default {
       this.phoneNumber = null
       this.email = null
     },
-    createUser(userData) {
-      const userModel = {
-        "id": 0,
-        "nodeScope": true,
-        "operatorId": 0,
-        "partitionScope": true,
-        "privileges": [
-          {
-            "id": 0,
-            "operatorId": 0,
-            "privilege": {
-              "description": "string",
-              "id": 0,
-              "name": "string",
-              "operatorId": 0,
-              "partitionScope": true,
-              "screenId": 0
-            },
-            "privilegeId": 0
-          }
-        ],
-        "roleName": "string",
-        "roleType": "string"
-      }
-      HTTP.post(userModel)
+    createUser(customer) {
+      console.log(customer)
+      HTTP.post('/users/create', customer)
         .then(response => {
           this.response = response.data
         })
@@ -163,16 +141,18 @@ export default {
         })
     },
     submit() {
-      const userData = {
-        name: this.name,
-        userID: this.userID,
+      const customer = {
+        address: this.address,
+        email: this.email,
+        id: this.id,
         password: this.password,
-        userRole: this.userRole,
         phoneNumber: this.phoneNumber,
-        email: this.email
+        role: this.role,
+        userId: this.userId,
+        userName: this.userName
       }
-      if(this.validateForm(userData)) 
-        this.createUser(userData)
+      if(this.validateForm(customer)) 
+        this.createUser(customer)
     }
   }
 }

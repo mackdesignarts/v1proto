@@ -18,17 +18,21 @@ $ npm run serve
 # Browser
 Open a browser at localhost:8081
 
+
 ```
 
-### UI Template (for development only)
+### Front End Development Tools (Optional)
 
-The client uses CoreUI admin dashboard template: http://coreui.io
+The client uses Vue.js, Vue CLI, and CoreUI admin dashboard template (http://coreui.io).
 
 A full source of the template is included in the dev package.
 
 ``` 
 
-# Install and launch template
+# Install dev tools
+$ npm install -g @vue/cli
+
+# Install UI template
 $ cd CoreUI-Vue
 $ npm install
 $ npm run serve
@@ -42,5 +46,14 @@ Runs on port 8080: localhost:8080
 
 The Node package includes a microservices architecture API with Docker, Kubernetes and Nginx.
 
+
+```
+
+# Install the application
+$ npm install
+
+
+
+```
 
 

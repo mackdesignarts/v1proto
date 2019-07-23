@@ -4,14 +4,14 @@ const repository = (container) => {
     const createUser = (user) => {
       return new Promise((resolve, reject) => {
         const payload = {
-          address = user.address,
-					email = user.email,
-					id = user.id,
-					password = user.password,
-					phoneNumber = user.phoneNumber,
-					role = user.rol,
-					userId = user.Id,
-					userName = user.userName
+          address: user.address,
+					email: user.email,
+					id: user.id,
+					password:  user.password,
+					phoneNumber: user.phoneNumber,
+					role: user.rold,
+					userId: user.Id,
+					userName: user.userName
         }
   
         db.collection('customers').insertOne(payload, (err, success) => {

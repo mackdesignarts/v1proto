@@ -15,7 +15,7 @@ module.exports = (app, options) => {
     }).catch(next)
   })
 
-  app.post('/user/create', (req, res, next) => {
+  app.post('/users/create', (req, res, next) => {
     const { validate } = req.container.cradle
 
     validate(req.body.createUser, 'customer')
