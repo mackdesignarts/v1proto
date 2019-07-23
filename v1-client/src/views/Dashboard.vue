@@ -9,14 +9,13 @@
 
           <b-form>
           <b-form-group
-            label="Id"
+            label="ID"
             label-for="Id"
             :label-cols="3"
           >
-            <b-form-input id="Id" type="text" autocomplete="Id" v-model="Id"></b-form-input>
+            <b-form-input id="id" type="text" autocomplete="id" v-model="id"></b-form-input>
           </b-form-group>
 
-          <b-form>
           <b-form-group
             label="Username"
             label-for="Username"
@@ -73,6 +72,14 @@
             :label-cols="3"
           >
             <b-form-input id="email" type="text" autocomplete="email" v-model="email"></b-form-input>
+          </b-form-group>
+
+          <b-form-group
+            label="Address"
+            label-for="Address"
+            :label-cols="3"
+          >
+            <b-form-input id="address" type="text" autocomplete="address" v-model="address"></b-form-input>
           </b-form-group>
           
           <br />
